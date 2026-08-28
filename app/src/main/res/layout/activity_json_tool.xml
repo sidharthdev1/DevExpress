@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JSON Formatter &amp; Validator"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paste raw JSON below to format or validate structure"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Raw Input Box -->
+    <EditText
+        android:id="@+id/et_raw_json"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@color/bg_surface"
+        android:gravity="top|start"
+        android:hint="Paste raw JSON here..."
+        android:textColorHint="@color/text_muted"
+        android:textColor="@color/text_primary"
+        android:fontFamily="monospace"
+        android:textSize="12sp"
+        android:padding="12dp"
+        android:inputType="textMultiLine" />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:id="@+id/btn_format"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Format JSON"
+            android:backgroundTint="@color/accent_blue"
+            android:textColor="@color/text_primary"
+            android:layout_marginEnd="6dp" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Clear"
+            android:backgroundTint="@color/bg_surface"
+            android:textColor="@color/text_secondary"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- Status Header -->
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formatted Output"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Formatted Scrollable Output Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_surface"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_output_json"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:fontFamily="monospace"
+            android:textSize="12sp"
+            android:textIsSelectable="true" />
+    </ScrollView>
+
+</LinearLayout>

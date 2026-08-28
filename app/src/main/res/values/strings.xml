@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">sidharthdev1</string>
+    <string name="dashboard_title">dev1 hub</string>
+    <string name="dashboard_subtitle">Developer &amp; DevOps Command Center</string>
+    <string name="pipeline_title">Production Pipeline</string>
+    <string name="pipeline_status_ok">All systems operational • 0 active incidents</string>
+
+</resources>

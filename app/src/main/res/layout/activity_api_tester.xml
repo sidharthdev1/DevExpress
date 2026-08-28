@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REST API Tester"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Execute network requests and inspect HTTP responses"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- History Section Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent Requests:"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Horizontal History List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_api_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Method Selector & URL Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Spinner
+                android:id="@+id/spinner_method"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/bg_surface"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/et_api_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/bg_surface"
+                android:hint="https://jsonplaceholder.typicode.com/todos/1"
+                android:textColorHint="@color/text_muted"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:padding="12dp"
+                android:inputType="textUri" />
+        </LinearLayout>
+
+        <!-- Request Body Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request Payload (JSON):"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/et_request_body"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/bg_surface"
+            android:hint="{&#10;  &quot;title&quot;: &quot;foo&quot;,&#10;  &quot;body&quot;: &quot;bar&quot;&#10;}"
+            android:textColorHint="@color/text_muted"
+            android:textColor="@color/text_primary"
+            android:fontFamily="monospace"
+            android:textSize="12sp"
+            android:gravity="top"
+            android:padding="10dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Send Button -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_send_request"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Send Request"
+                android:backgroundTint="@color/accent_blue"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_copy_curl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copy cURL"
+                android:backgroundTint="@color/bg_surface"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+
+
+        <!-- Response Section Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Response Output:"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_status_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STATUS: --"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_muted" />
+        </LinearLayout>
+
+        <!-- Response Body Output -->
+        <TextView
+            android:id="@+id/tv_response_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="150dp"
+            android:background="@color/bg_surface"
+            android:textColor="@color/status_green"
+            android:fontFamily="monospace"
+            android:textSize="12sp"
+            android:padding="12dp"
+            android:text="Press 'Send Request' to execute call..."
+            android:textIsSelectable="true" />
+
+        <!-- Response Headers Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Response Headers:"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Response Headers Output -->
+        <TextView
+            android:id="@+id/tv_response_headers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:background="@color/bg_surface"
+            android:fontFamily="monospace"
+            android:padding="10dp"
+            android:text="Headers will appear here..."
+            android:textColor="@color/text_primary"
+            android:textSize="11sp"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+</ScrollView>
